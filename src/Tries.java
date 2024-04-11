@@ -1,5 +1,3 @@
-import sun.text.normalizer.Trie;
-
 public class Tries {
 
     // A trie consisting of the words: my, many and a.
@@ -12,7 +10,7 @@ public class Tries {
 
     public static void main(String[] args) {
 
-        TrieNode root = new TrieNode(null);
+        TrieNode1 root = new TrieNode1(null);
 
         addWord("a", root);
         addWord("many", root);
@@ -25,7 +23,7 @@ public class Tries {
 
     }
 
-    public static void addWord(String word, TrieNode trieNode) {
+    public static void addWord(String word, TrieNode1 trieNode) {
 
         char c = word.charAt(0);
 
@@ -38,7 +36,7 @@ public class Tries {
             // If not, we set isWord = true and bye.
             if (trieNode.childs[i] == null) {
 
-                trieNode.childs[i] = new TrieNode(c, false);
+                trieNode.childs[i] = new TrieNode1(c, false);
                 if (word.length() > 1) {
                     addWord(word.substring(1), trieNode.childs[i]);
                 } else {
@@ -65,22 +63,22 @@ public class Tries {
 
     }
 
-    public static void checkPrefix(String checkPrefix, TrieNode trie) {
+    public static void checkPrefix(String checkPrefix, TrieNode1 trie) {
 
     }
 
 }
 
-class TrieNode {
+class TrieNode1 {
     Character character = null;
-    TrieNode[] childs = new TrieNode[26];
+    TrieNode1[] childs = new TrieNode1[26];
     boolean isWord = false;
 
-    public TrieNode(Character character) {
+    public TrieNode1(Character character) {
         this.character = character;
     }
 
-    public TrieNode(Character character, boolean isWord) {
+    public TrieNode1(Character character, boolean isWord) {
         this.character = character;
         this.isWord = isWord;
     }
